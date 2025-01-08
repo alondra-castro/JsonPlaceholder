@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+    <ion-title size="large" class="titleu" >Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title >user</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Spinner mientras carga -->
+  <ion-spinner *ngIf="isLoading" color="primary"></ion-spinner>
+
+  <!-- Lista de usuarios -->
+  <ion-list *ngIf="!isLoading">
+    <ion-item *ngFor="let user of users" (click)="openUserDetails(user)">
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.username }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
